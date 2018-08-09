@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script> 
+  <script>
+  $( function() {
+  if (!$.cookie('cia_dichiarazione')) {
+     //no cookie
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height: "auto",
+      width: 800,
+      modal: true,
+      buttons: {
+        "ACCETTO e CONFERMO": function() {
+		  $("input").removeAttr('disabled');
+          $( this ).dialog( "close" );
+		  $.cookie("cia_dichiarazione", "accettato_cookies_qui", { expires: 30 });
+        }
+      }
+    });
+	} else {
+	// have cookie
+	$("input").removeAttr('disabled');
+	}
+  } );
+  </script>
+</head>
+<body>
+ 
+    <div id="dialog-confirm" title="DICHIARAZIONE DI RISERVATEZZA DEL SITO">
+        <p>Le informazioni contenute nel SITO sono da intendersi RISERVATE. Pertanto il sottoscritto operatore si impegna a mantenere riservate le informazioni e perci&ograve; a non divulgarle, diffonderle o comunicarle a terzi, nemmeno parzialmente, ed a custodirle in modo appropriato. Inoltre il sottoscritto non potr&agrave; copiare, duplicare, riprodurre o registrare in nessuna forma e con nessun mezzo tali informazioni riservate se non ad utilizzarle unicamente allo scopo di effettuare la normale gestione di consultazione, compilazione e stampa al fine della normale gestione dell&rsquo;attivit&agrave;. Il vincolo di riservatezza rester&agrave; in vigore per un periodo di quindici anni a decorrere dalla data di ultimo accesso. La password &egrave; personale e non pu&ograve; essere ceduta a terzi. Il sottoscritto &egrave; consapevole della responsabilit&agrave; penale cui pu&ograve; andare incontro in caso di dichiarazione mendace (art. 76, D.P.R. 445 /2000)</p>
+      </div>  	</div>
+</body>
