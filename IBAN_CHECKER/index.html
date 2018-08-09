@@ -1,0 +1,28 @@
+<html>
+    <head>
+            <meta charset="utf-8"/>
+    </head>
+    <body>
+    <input id="IBAN">Check IBAN</input><br>
+    <div id="errorstampa"></div>
+    </body>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="iban.js"></script>
+    <script>
+$("#IBAN").change(function(){
+    var iban = $( this ).val();
+    var result = IBAN.isValid(iban);
+    if (result == false)
+    {
+
+       $( "#errorstampa" ).text( 'IBAN NON VALIDO' );
+    }else{
+
+       $( "#errorstampa" ).text( 'IBAN VALIDO' );
+    }
+});
+        </script>
+</html>
